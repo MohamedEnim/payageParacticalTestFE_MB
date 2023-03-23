@@ -1,0 +1,18 @@
+<div class="app__container">
+  <mat-card class="app__card">
+    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+    <div class="header__card"><span>AcmePay</span></div>
+    <div class="header__title">
+      <div class="header__titleLeft">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      </div>
+      <div
+        class="header__titleRight"
+        *ngIf="paymentMethod$ | async as paymentMethod"
+      >
+        {{ paymentMethod.currency }} {{ paymentMethod.paymentAmount }}
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-card>
+</div>

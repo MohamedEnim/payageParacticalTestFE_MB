@@ -1,0 +1,13 @@
+
+    <div class="card__content" *ngIf="paymentMethod$ | async as paymentMethod">
+      <p>Please, select the payment method</p>
+      <div class="card__method">
+        <app-payment-method
+          *ngFor="let payment of paymentMethod.paymentMethods"
+          [paymentMethod]="payment"
+          [paymentAmount] = "paymentMethod.paymentAmount"
+          [currency]="paymentMethod.currency"
+        ></app-payment-method>
+      </div>
+    </div>
+

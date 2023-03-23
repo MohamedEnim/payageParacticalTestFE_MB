@@ -1,0 +1,14 @@
+<div class="payment__containe" *ngIf="paymentMethod">
+  <a
+    mat-button
+    extended
+    [routerLink]="['/payment/paymentDetails', paymentMethod.name]"
+    [queryParams]="{
+      paymentAmount: paymentAmount,
+      currency: currency,
+      paymentMethod: paymentMethod.name
+    }"
+  >
+    <img [src]="paymentMethod.image" [alt]="paymentMethod.name" />
+  </a>
+</div>

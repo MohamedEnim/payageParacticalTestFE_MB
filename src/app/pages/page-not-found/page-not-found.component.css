@@ -1,0 +1,16 @@
+.notfound__card {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 75vh;
+  box-sizing: border-box;
+}
+
+.notfound__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+}

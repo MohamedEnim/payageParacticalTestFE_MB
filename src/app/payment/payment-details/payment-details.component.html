@@ -1,0 +1,30 @@
+<div class="detail__container" *ngIf="isShowForm">
+  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+    <ng-container
+      formArrayName="paymentControls"
+      *ngFor="let t of paymentControls.controls; let i = index"
+    >
+      <div class="add__formGroup">
+        <label for="name" class="label">{{
+          paymentDetail.controls[i].label
+        }}</label>
+        <mat-form-field appearance="outline" class="formField">
+          <mat-label
+            ><span>{{ paymentDetail.controls[i].label }}</span></mat-label
+          >
+          <input
+            matInput
+            [formControlName]="i"
+            [type]="paymentDetail.controls[i].type"
+          />
+          <mat-error>{{
+            errorMessage(i, paymentDetail.controls[i])
+          }}</mat-error>
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <div class="form__button">
+      <button mat-raised-button color="primary" type="submit">Primary</button>
+    </div>
+  </form>
+</div>

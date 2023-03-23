@@ -1,0 +1,54 @@
+.app__card {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 75vh;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.header__card::before {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  content: "";
+  display: block;
+  width: 84%;
+  height: 84%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.header__card {
+  box-sizing: border-box;
+}
+.header__card span {
+  position: absolute;
+  top: 6%;
+  display: inline-block;
+  padding: 0 2px 0 2px;
+  left: 12%;
+  background-color: white;
+}
+
+.header__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 40px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.header__titleLeft {
+  width: 20%;
+}
+
+.header__titleLeft i {
+  font-size: 35px !important;
+}

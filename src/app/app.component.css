@@ -1,0 +1,18 @@
+.app__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  background-color: whitesmoke;
+}
+
+.app__contentWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  height: 75vh;
+  box-sizing: border-box;
+}
