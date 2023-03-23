@@ -1,7 +1,10 @@
 # stage 1
-FROM node:latest as node
+FROM node:alpine3.17 as node
+RUN mkdir -p /app
 WORKDIR /app
+
 COPY . .
+
 RUN npm install
 RUN npm run build --prod
 
