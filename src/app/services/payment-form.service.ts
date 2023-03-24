@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { IPaymentDetail } from 'src/app/Models/paymentDetail.model';
+import { ValidatorType } from '../enums/validatorType.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -37,21 +38,21 @@ export class PaymentFormService {
 
       for (const [key, value] of Object.entries(control.validators)) {
         switch (key) {
-          case 'required':
+          case ValidatorType.Required:
             if (value) {
               validatorsToAdd.push(Validators.required);
             }
             break;
-          case 'minLength':
+          case ValidatorType.MinLength:
             validatorsToAdd.push(Validators.minLength(value as number));
             break;
-          case 'maxLength':
+          case ValidatorType.MaxLength:
             validatorsToAdd.push(Validators.maxLength(value as number));
             break;
-          case 'pattern':
+          case ValidatorType.Pattern:
             validatorsToAdd.push(Validators.pattern(value as string));
             break;
-          case 'luhn':
+          case ValidatorType.LuhnValidator:
             if (value) {
               validatorsToAdd.push(this.luhnCheckValidator.bind(this));
             }
@@ -89,19 +90,19 @@ export class PaymentFormService {
       controlName.toString()
     );
 
-    if (error?.hasError('required')) {
+    if (error?.hasError(ValidatorType.Required)) {
       return `${controlValidators.label} is required`;
-    } else if (error?.hasError('minlength')) {
-      return `Min length is ${controlValidators.validators.minLength}`;
-    } else if (error?.hasError('maxlength')) {
-      return `Max length is ${controlValidators.validators.maxLength}`;
-    } else if (error?.hasError('pattern')) {
+    } else if (error?.hasError(ValidatorType.MinLength)) {
+      return `Min length is ${controlValidators.validators.minlength}`;
+    } else if (error?.hasError(ValidatorType.MaxLength)) {
+      return `Max length is ${controlValidators.validators.maxlength}`;
+    } else if (error?.hasError(ValidatorType.Pattern)) {
       return Object.prototype.toString.call(
         controlValidators.validators.equalLength
       ) === '[object Number]'
         ? `Length is ${controlValidators.validators.equalLength}`
         : `Pattern is ${controlValidators.validators.equalLength}`;
-    } else if (error?.hasError('luhn')) {
+    } else if (error?.hasError(ValidatorType.LuhnValidator)) {
       return `Card number not valid`;
     } else return null;
   }

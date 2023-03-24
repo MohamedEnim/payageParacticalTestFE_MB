@@ -5,8 +5,5 @@ export interface IPaymemtMethod {
     image: string;
 }
 
-export enum PaymemtMethod {
-    VISA = "VISA",
-     SEPA = "SEPA"
-}
+
 

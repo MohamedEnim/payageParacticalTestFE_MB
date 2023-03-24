@@ -14,7 +14,8 @@ import { payeRequest } from '../store/payment.actions';
 import { PaymentFormService } from 'src/app/services/payment-form.service';
 import { IPayment } from './../../Models/payment';
 import { IFormControls } from 'src/app/Models/formControl.model';
-import { PaymemtMethod } from 'src/app/Models/paymentMethod.model';
+import { PaymemtMethod } from 'src/app/enums/paymentMethod.enum';
+
 
 @Component({
   selector: 'app-payment-details',

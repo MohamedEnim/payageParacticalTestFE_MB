@@ -38,8 +38,8 @@ export class DatabaseService implements InMemoryDbService {
             type: '',
             value: '',
             validators: {
-              minLength: 15,
-              maxLength: 50,
+              minlength: 15,
+              maxlength: 50,
               required: true,
             },
           },
@@ -89,8 +89,8 @@ export class DatabaseService implements InMemoryDbService {
             type: 'text',
             value: '',
             validators: {
-              minLength: 15,
-              maxLength: 32,
+              minlength: 15,
+              maxlength: 32,
               required: true,
             },
           },
@@ -111,8 +111,8 @@ export class DatabaseService implements InMemoryDbService {
             type: 'text',
             value: '',
             validators: {
-              minLength: 15,
-              maxLength: 50,
+              minlength: 15,
+              maxlength: 50,
               required: true,
             },
           },
