@@ -14,6 +14,7 @@ import { payeRequest } from '../store/payment.actions';
 import { PaymentFormService } from 'src/app/services/payment-form.service';
 import { IPayment } from './../../Models/payment';
 import { IFormControls } from 'src/app/Models/formControl.model';
+import { PaymemtMethod } from 'src/app/Models/paymentMethod.model';
 
 @Component({
   selector: 'app-payment-details',
@@ -69,7 +70,7 @@ export class PaymentDetailsComponent implements OnInit {
     const min = 0;
     const max = 1000000;
     const id = Math.floor(Math.random() * (max - min + 1)) + min;
-    if (this.paymentMethod === 'VISA') {
+    if (this.paymentMethod === PaymemtMethod.VISA) {
       payment = {
         id,
         cardHolderName: paymentControls.controls[0].value,

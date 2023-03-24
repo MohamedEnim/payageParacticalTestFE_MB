@@ -10,9 +10,9 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './routing-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { PaymentModule } from './modules/payment.module';
-import { SharedModule } from './modules/shared.module';
-import { MaterialModule } from './modules/material.module';
+import { PaymentModule } from './payment/payment.module';
+import { SharedModule } from './sharedmodules/shared.module';
+import { MaterialModule } from './sharedmodules/material.module';
 import { PaymentEffects, paymentReducer } from './payment/store';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -22,8 +22,8 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,  
-    FormsModule, 
+    HttpClientModule,
+    FormsModule,
     StoreModule.forRoot({ payment: paymentReducer }),
     EffectsModule.forRoot([PaymentEffects]),
     HttpClientInMemoryWebApiModule.forRoot(DatabaseService),
@@ -31,7 +31,7 @@ import { EffectsModule } from '@ngrx/effects';
     PaymentModule,
     AppRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
